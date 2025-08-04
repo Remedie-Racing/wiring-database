@@ -1,4 +1,16 @@
 connectors:
+  5v_distribution_8pin:
+    pincount: 8
+    type: Dist_Block
+    hide_disconnected_pins: True
+  ground_distribution_8pin:
+    pincount: 8
+    type: Dist_Block
+    hide_disconnected_pins: True
+  can_bus_feather:
+    pincount: 28
+    type: m4_feather_can
+    hide_disconnected_pins: True
   rpm_gauge_3pin_female:
     pincount: 3
     type: DT_3-pin
@@ -7,14 +19,54 @@ connectors:
     pincount: 3
     type: DT_3-pin
     subtype: male
+  rpm_gauge_neopixel:
+    pincount: 3
+    type: neopixel
 
 cables:
-  wiring:
+  5v_wiring:
+    wirecount: 1
+    colors: [RD]
+  ground_wiring:
+    wirecount: 1
+    colors: [BK]
+  rpm_wiring:
+    wirecount: 1
+    colors: [BN]
+  plug_wiring:
+    wirecount: 3
+    colors: [RD, BK, BN]
+  neo_pixel_wiring:
     wirecount: 3
     colors: [RD, BK, BN]
 
 connections:
+  # Red wire (5V)
   -
-    - rpm_gauge_3pin_female: [1-3]
-    - wiring: [1-3]
-    - rpm_gauge_3pin_male: [1-3]
+    - 5v_distribution_8pin: [1]
+    - 5v_wiring: [1]
+    - rpm_gauge_3pin_female: [1]
+    - plug_wiring: [1]
+    - rpm_gauge_3pin_male: [1]
+    - neo_pixel_wiring: [1]
+    - rpm_gauge_neopixel: [1]
+
+  # Black wire (GND)
+  -
+    - ground_distribution_8pin: [1]
+    - ground_wiring: [1]
+    - rpm_gauge_3pin_female: [2]
+    - plug_wiring: [2]
+    - rpm_gauge_3pin_male: [2]
+    - neo_pixel_wiring: [2]
+    - rpm_gauge_neopixel: [2]
+
+  # Brown wire (Signal)
+  -
+    - can_bus_feather: [12]         # Adjust this to actual signal pin
+    - rpm_wiring: [1]
+    - rpm_gauge_3pin_female: [3]
+    - plug_wiring: [3]
+    - rpm_gauge_3pin_male: [3]
+    - neo_pixel_wiring: [3]
+    - rpm_gauge_neopixel: [3]
