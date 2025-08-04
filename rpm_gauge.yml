@@ -1,0 +1,20 @@
+connectors:
+  rpm_gauge_3pin_female:
+    pincount: 3
+    type: DT_3-pin
+    subtype: female
+  rpm_gauge_3pin_male:
+    pincount: 3
+    type: DT_3-pin
+    subtype: male
+
+cables:
+  wiring:
+    wirecount: 3
+    colors: [RD, BK, BN]
+
+connections:
+  -
+    - rpm_gauge_3pin_female: [1-3]
+    - wiring: [1-3]
+    - rpm_gauge_3pin_male: [1-3]
