@@ -63,7 +63,7 @@ connections:
 
   # Brown wire (Signal)
   -
-    - can_bus_feather: [A5]      
+    - can_bus_feather: [5]      
     - rpm_wiring: [1]
     - rpm_gauge_3pin_female: [3]
     - plug_wiring: [3]
