@@ -1,3 +1,19 @@
+# Wire Color Codes
+# | Color                | Code    |
+# | -------------------- | ------- |
+# | Red                  | RD      |
+# | Black                | BK      |
+# | Brown                | BN      |
+# | Blue                 | BU      |
+# | White                | WH      |
+# | Green                | GN      |
+# | Yellow               | YE      |
+# | Gray                 | GY      |
+# | Orange               | OG      |
+# | Purple               | VI      |
+# | Pink                 | PK      |
+# | Transparent / Shield | T or SH |
+
 connectors:
   5v_distribution_8pin:
     pincount: 8
