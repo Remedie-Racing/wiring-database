@@ -36,10 +36,10 @@ cables:
     colors: [BK]
   rpm_wiring:
     wirecount: 1
-    colors: [BN]
+    colors: [BU]
   plug_wiring:
     wirecount: 3
-    colors: [RD, BK, BN]
+    colors: [RD, BK, BU]
   neo_pixel_wiring:
     wirecount: 3
     colors: [RD, BK, BN]
