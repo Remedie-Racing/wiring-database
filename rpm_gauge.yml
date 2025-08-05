@@ -11,6 +11,8 @@ connectors:
     pincount: 28
     type: m4_feather_can
     hide_disconnected_pins: True
+    pins: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+    pinlabels: [RST, 3V3, AREF, GND, A0, A1, A2, A3, A4, A5, SCK, MOSI, MISO, D0, D1, D4, VBAT, EN, VBUS, D13, D12, D11, D10, D9, D6, D5, SCL, SDA]
   rpm_gauge_3pin_female:
     pincount: 3
     type: DT_3-pin
@@ -22,6 +24,8 @@ connectors:
   rpm_gauge_neopixel:
     pincount: 3
     type: neopixel
+    pins: [1, 2, 3]
+    pinlabels: [5V, GND, DIN]
 
 cables:
   5v_wiring:
@@ -63,7 +67,7 @@ connections:
 
   # Brown wire (Signal)
   -
-    - can_bus_feather: [5]      
+    - can_bus_feather: [10]      
     - rpm_wiring: [1]
     - rpm_gauge_3pin_female: [3]
     - plug_wiring: [3]
