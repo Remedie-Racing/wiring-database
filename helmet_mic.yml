@@ -1,0 +1,92 @@
+# WireViz
+# wireviz ~/path/to/file/wires.yml -f p -o ./diagrams
+# Wire Color Codes
+# | Color                | Code    |
+# | -------------------- | ------- |
+# | Red                  | RD      |
+# | Black                | BK      |
+# | Brown                | BN      |
+# | Blue                 | BU      |
+# | White                | WH      |
+# | Green                | GN      |
+# | Yellow               | YE      |
+# | Gray                 | GY      |
+# | Orange               | OG      |
+# | Purple               | VI      |
+# | Pink                 | PK      |
+# | Transparent / Shield | T or SH |
+
+connectors:
+  big_trs_plug:
+    pincount: 2
+    type: "3.5mm_trs"
+    subtype: male
+    pins: [1, 2]
+    pinlabels: [Tip, Sleeve]
+
+  small_trs_plug:
+    pincount: 2
+    type: "2.5mm_trs"
+    subtype: male
+    pins: [1, 2]
+    pinlabels: [Tip, Sleeve]
+
+  ptt_button:
+    pincount: 2
+    type: button
+    pins: [1, 2]
+    pinlabels: [+, -]
+
+  helmet:
+    pincount: 4
+    type: header
+    pins: [1, 2, 3, 4]
+    pinlabels: [MIC+, MIC-, SPK+, SPK-]
+
+cables:
+  small_trs_wiring:
+    wirecount: 2
+    colors: [RD, BK]
+
+  big_trs_wiring:
+    wirecount: 2
+    colors: [WH, YE]
+
+  speaker_wiring:
+    wirecount: 2
+    colors: [WH, YE]
+
+  mic_wiring:
+    wirecount: 1
+    colors: [BK]
+
+connections:
+  # Red wire (MIC+)
+  -
+    - small_trs_plug: [1]
+    - small_trs_wiring: [1]
+    - helmet: [1]
+
+  # Black wire (MIC-) from plug TO the PTT button
+  -
+    - small_trs_plug: [2]
+    - small_trs_wiring: [2]
+    - ptt_button: [1]
+
+  # Black wire (MIC-) FROM the PTT button to the helmet mic
+  -
+    - ptt_button: [2]
+    - mic_wiring: [1]
+    - helmet: [2]
+
+  # White wire (SPK+)
+  -
+    - big_trs_plug: [1]
+    - speaker_wiring: [1]
+    - helmet: [3]
+
+  # Yellow wire (SPK-)
+  -
+    - big_trs_plug: [2]
+    - speaker_wiring: [2]
+    - helmet: [4]
