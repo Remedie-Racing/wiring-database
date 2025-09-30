@@ -39,7 +39,7 @@ connectors:
 
   helmet:
     pincount: 4
-    type: header
+    type: 4_pin_xlr
     pins: [1, 2, 3, 4]
     pinlabels: [MIC+, MIC-, SPK+, SPK-]
 
