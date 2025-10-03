@@ -37,9 +37,16 @@ connectors:
     pins: [1, 2]
     pinlabels: [+, -]
 
-  helmet:
+  heli_socket:
     pincount: 4
-    type: 4_pin_xlr
+    type: "4_pin_heli"
+    subtype: female
+    pins: [1, 2, 3, 4]
+    pinlabels: [MIC+, MIC-, SPK+, SPK-]
+
+  heli_plug:
+    pincount: 4
+    type: "4_pin_heli"
     pins: [1, 2, 3, 4]
     pinlabels: [MIC+, MIC-, SPK+, SPK-]
 
@@ -52,41 +59,47 @@ cables:
     wirecount: 2
     colors: [WH, YE]
 
-  speaker_wiring:
-    wirecount: 2
-    colors: [WH, YE]
-
-  mic_wiring:
+  button_wiring:
     wirecount: 1
     colors: [BK]
+
+  heli_sock_wiring:
+    wirecount: 4
+    colors: [RD, BK, WH, YE]
+  
 
 connections:
   # Red wire (MIC+)
   -
     - small_trs_plug: [1]
     - small_trs_wiring: [1]
-    - helmet: [1]
+    - heli_socket: [1]
+    - heli_sock_wiring: [1]
+    - heli_plug: [1]
 
   # Black wire (MIC-) from plug TO the PTT button
   -
     - small_trs_plug: [2]
     - small_trs_wiring: [2]
     - ptt_button: [1]
+    - button_wiring: [1]
+    - heli_socket: [2]
+    - heli_sock_wiring: [2]
+    - heli_plug: [2]
 
-  # Black wire (MIC-) FROM the PTT button to the helmet mic
-  -
-    - ptt_button: [2]
-    - mic_wiring: [1]
-    - helmet: [2]
 
   # White wire (SPK+)
   -
     - big_trs_plug: [1]
-    - speaker_wiring: [1]
-    - helmet: [3]
+    - big_trs_wiring: [1]
+    - heli_socket: [3]
+    - heli_sock_wiring: [3]
+    - heli_plug: [3]
 
   # Yellow wire (SPK-)
   -
     - big_trs_plug: [2]
-    - speaker_wiring: [2]
-    - helmet: [4]
+    - big_trs_wiring: [2]
+    - heli_socket: [4]
+    - heli_sock_wiring: [4]
+    - heli_plug: [4]
