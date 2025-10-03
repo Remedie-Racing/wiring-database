@@ -32,10 +32,9 @@ connectors:
     pinlabels: [Tip, Sleeve]
 
   ptt_button:
-    pincount: 2
+    pincount: 
     type: button
-    pins: [1, 2]
-    pinlabels: [+, -]
+    pins: [1]
 
   heli_socket:
     pincount: 4
