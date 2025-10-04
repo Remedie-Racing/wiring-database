@@ -50,19 +50,19 @@ connectors:
     pinlabels: [MIC+, MIC-, SPK+, SPK-]
 
 cables:
-  small_trs_wiring:
-    wirecount: 2
-    colors: [RD, BK]
+  3_core_wire:
+    wirecount: 3
+    colors: [RD, WH, YE]
 
-  big_trs_wiring:
-    wirecount: 2
-    colors: [WH, YE]
-
-  button_wiring:
+  single_core_wire:
     wirecount: 1
     colors: [BK]
 
-  heli_sock_wiring:
+  button_wire:
+    wirecount: 1
+    colors: [BK]
+
+  4_core_wire:
     wirecount: 4
     colors: [RD, BK, WH, YE]
   
@@ -71,34 +71,34 @@ connections:
   # Red wire (MIC+)
   -
     - small_trs_plug: [1]
-    - small_trs_wiring: [1]
+    - 3_core_wire: [1]
     - heli_socket: [1]
-    - heli_sock_wiring: [1]
+    - 4_core_wire: [1]
     - heli_plug: [1]
 
   # Black wire (MIC-) from plug TO the PTT button
   -
     - small_trs_plug: [2]
-    - small_trs_wiring: [2]
+    - single_core_wire: [1]
     - ptt_button: [1]
-    - button_wiring: [1]
+    - button_wire: [1]
     - heli_socket: [2]
-    - heli_sock_wiring: [2]
+    - 4_core_wire: [2]
     - heli_plug: [2]
 
 
   # White wire (SPK+)
   -
     - big_trs_plug: [1]
-    - big_trs_wiring: [1]
+    - 3_core_wire: [2]
     - heli_socket: [3]
-    - heli_sock_wiring: [3]
+    - 4_core_wire: [3]
     - heli_plug: [3]
 
   # Yellow wire (SPK-)
   -
     - big_trs_plug: [2]
-    - big_trs_wiring: [2]
+    - 3_core_wire: [3]
     - heli_socket: [4]
-    - heli_sock_wiring: [4]
+    - 4_core_wire: [4]
     - heli_plug: [4]
