@@ -1,0 +1,521 @@
+# WireViz
+# wireviz ~/path/to/file/wires.yml -f p -o ./diagrams
+# Wire Color Codes
+# | Color        | Code |
+# |--------------|------|
+# | Black        | BK   |
+# | White        | WH   |
+# | Gray         | GY   |
+# | Pink         | PK   |
+# | Red          | RD   |
+# | Orange       | OG   |
+# | Yellow       | YE   |
+# | Olive Green  | OL   |
+# | Green        | GN   |
+# | Turquoise    | TQ   |
+# | Light Blue   | LB   |
+# | Blue         | BU   |
+# | Violet       | VT   |
+# | Brown        | BN   |
+# | Beige        | BG   |
+# | Ivory        | IV   |
+# | Slate        | SL   |
+# | Copper       | CU   |
+# | Tin          | SN   |
+# | Silver       | SR   |
+
+connectors:
+  12_pin_DT:
+    pincount: 12
+    type: "12_pin_dt"
+    subtype: male
+    pins: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    pinlabels: [12v, START+, START-, ISO+, ISO-, IGN+, IGN-, FUEL+, FUEL-, IND-L, IND-C, IND-R]
+
+  6_pin_DT:
+    pincount: 6
+    type: "6_pin_dt"
+    subtype: male
+    pins: [1, 2, 3, 4, 5, 6]
+    pinlabels: [GND, 5V, SCL, SDA]
+
+  start_button:
+    pincount: 2
+    type: "start_button"
+    pins: [1, 2]
+    pinlabels: [START+, START-]
+
+  iso_switch:
+    pincount: 2
+    type: "iso_switch"
+    pins: [1, 2]
+    pinlabels: [ISO+, ISO-]  
+
+  ign_switch:
+    pincount: 2
+    type: "ign_switch"
+    pins: [1, 2]
+    pinlabels: [IGN+, IGN-]  
+
+  fuel_switch:
+    pincount: 2
+    type: "fuel_switch"
+    pins: [1, 2]
+    pinlabels: [FUEL+, FUEL-]  
+  
+  ind_switch:
+    pincount: 3
+    type: "ind_switch"
+    pins: [1, 2, 3]
+    pinlabels: [IND-L, IND-C, IND-R]  
+
+  12v_led_feed:
+    pincount: 1
+    type: "12v_feed_leds"
+    pins: [1]
+    pinlabels: [12V] 
+
+  5v_power_rail:
+    pincount: 26
+    type: "5v_distribution_board"
+    pins: [A, B, 1A, 2A, 3A, 4A, 5A, 6A, 7A, 8A, 9A, 10A, 11A, 12A, 1B, 2B, 3B, 4B, 5B, 6B, 7B, 8B, 9B, 10B, 11B, 12B]
+
+  trans_array_a:
+    pincount: 18
+    type: "transister_array"
+    pins: [1b, 2b, 3b, 4b, 5b, 6b, 7b, 8b, 1c, 2c, 3c, 4c, 5c, 6c, 7c, 8c, GND]
+    pinlabels: [TRANS-LED, FAN-LED, WIPER-LED, LOW-LED, HIGH-LED, HAZ-LED, INT-LED, COOL-LED, MCP-A0, MCP-A1, MCP-A2, MCP-A3, MCP-A4, MCP-A5, MCP-A6, MCP-A7, GND]
+
+  trans_array_b:
+    pincount: 18
+    type: "transister_array"
+    pins: [1b, 1c, 2c, 3c, 4c, 5c, 6c, 7c, 8c, GND]
+    pinlabels: [DEMIST-LED, MCP-E0, MCP-E1, MCP-E2, MCP-E3, MCP-E4, MCP-E5, MCP-E6, MCP-E7, GND]
+
+  mcp_exp_1:
+    pincount: 26
+    type: "mcp23017_io_expander"
+    pins: [VIN, GND, SCL, SDA, RST, A0, A1, A2, A3, A4, A5, A6, A7, E0, E1, E2, E3, E4, E5, E6, E7, D2, D1, D0, IB, IA]
+    pinlabels: [VIN, GND, SCL, SDA, RST, TRANS-LED, FAN-LED, WIPER-LED, LOW-LED, HIGH-LED, HAZ-LED, INT-LED, COOL-LED, DEMIST-LED]
+  
+  mcp_exp_2:
+    pincount: 26
+    type: "mcp23017_io_expander"
+    pins: [VIN, GND, SCL, SDA, RST, A0, A1, A2, A3, A4, A5, A6, A7, E0, E1, E2, E3, E4, E5, E6, E7, D2, D1, D0, IB, IA]
+    pinlabels: [VIN, GND, SCL, SDA, RST, TRANS, FAN, WIPER, LOW, HIGH, HAZ, INT, COOL, DEMIST]
+
+  trans_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-A0, GND]
+
+  fan_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-A1, GND]
+
+  wiper_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-A2, GND]
+  
+  low_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-A3, GND]
+
+  high_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-A4, GND]
+
+  haz_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-A5, GND]
+
+  int_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-A6, GND]
+
+  cool_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-A7, GND]
+
+  demist_button:
+    pincount: 4
+    type: "led_button"
+    pins: [1, 2, 3, 4]
+    pinlabels: [12v, LED-GND, MCP-E0, GND]
+
+cables:
+  12_core_wire:
+    wirecount: 12
+    colors: [RD, BK, WH, GY, PK, OG, YE, GN, LB, BU, VT, BN]
+  
+  6_core_wire:
+    wirecount: 6
+    colors: [BK, RD, WH, GY, PK, OG]
+
+  trans_a_wiring_mcp:
+    category: bundle
+    wirecount: 9
+
+  trans_b_wiring_mcp:
+    category: bundle
+    wirecount: 9
+
+  trans_a_wiring_led:
+    category: bundle
+    wirecount: 8
+
+  trans_b_wiring_led:
+    category: bundle
+    wirecount: 8
+  
+  12v_splice:
+    wirecount: 1
+    colors: [RD]
+  
+  gnd_splice:
+    wirecount: 1
+    colors: [YE]
+  
+  button_wiring:
+    category: bundle
+    wirecount: 12
+
+  mcp_1_wiring:
+    wirecount: 2
+    colors: [RD, BK]
+  
+  mcp_2_wiring:
+    wirecount: 2
+    colors: [RD, BK]
+
+connections:
+###START 12PIN DT###
+#12V LED Feed
+-
+  - 12_pin_DT: [1]
+  - 12_core_wire: [1]
+  - 12v_led_feed: [1]
+  - 12v_splice: [1]
+  - trans_button: [12v]
+
+-
+  - 12v_splice: [1]
+  - fan_button: [12v]
+
+-
+  - 12v_splice: [1]
+  - wiper_button: [12v]
+
+-
+  - 12v_splice: [1]
+  - low_button: [12v]
+
+-
+  - 12v_splice: [1]
+  - high_button: [12v]
+
+-
+  - 12v_splice: [1]
+  - haz_button: [12v]
+
+-
+  - 12v_splice: [1]
+  - int_button: [12v]
+
+-
+  - 12v_splice: [1]
+  - cool_button: [12v]
+
+-
+  - 12v_splice: [1]
+  - demist_button: [12v]
+
+#START+
+-
+  - 12_pin_DT: [2]
+  - 12_core_wire: [2]
+  - start_button: [1]
+
+#START-
+-
+  - 12_pin_DT: [3]
+  - 12_core_wire: [3]
+  - start_button: [2]
+
+#ISO+
+-
+  - 12_pin_DT: [4]
+  - 12_core_wire: [4]
+  - iso_switch: [1]
+
+#ISO-
+-
+  - 12_pin_DT: [5]
+  - 12_core_wire: [5]
+  - iso_switch: [2]
+
+#IGN+
+-
+  - 12_pin_DT: [6]
+  - 12_core_wire: [6]
+  - ign_switch: [1]
+
+#IGN-
+-
+  - 12_pin_DT: [7]
+  - 12_core_wire: [7]
+  - ign_switch: [2]
+
+#FUEL+
+-
+  - 12_pin_DT: [8]
+  - 12_core_wire: [8]
+  - fuel_switch: [1]
+
+#FUEL-
+-
+  - 12_pin_DT: [9]
+  - 12_core_wire: [9]
+  - fuel_switch: [2]
+
+#IND-L
+-
+  - 12_pin_DT: [10]
+  - 12_core_wire: [10]
+  - ind_switch: [1]
+
+#IND-C
+-
+  - 12_pin_DT: [11]
+  - 12_core_wire: [11]
+  - ind_switch: [2]
+
+#IND-R
+-
+  - 12_pin_DT: [12]
+  - 12_core_wire: [12]
+  - ind_switch: [3]
+###END 12PIN DT###
+###START 6PIN DT###
+-
+  - 6_pin_DT: [1]
+  - 6_core_wire: [1]
+  - 5v_power_rail: [A]
+
+-
+  - 6_pin_DT: [2]
+  - 6_core_wire: [2]
+  - 5v_power_rail: [B]
+
+-
+  - 5v_power_rail: [1B]
+  - gnd_splice: [1]
+  - trans_button: [GND]
+
+-
+  - gnd_splice: [1]
+  - fan_button: [GND]
+
+-
+  - gnd_splice: [1]
+  - wiper_button: [GND]
+
+-
+  - gnd_splice: [1]
+  - low_button: [GND]
+
+-
+  - gnd_splice: [1]
+  - high_button: [GND]
+
+-
+  - gnd_splice: [1]
+  - haz_button: [GND]
+
+-
+  - gnd_splice: [1]
+  - int_button: [GND]
+
+-
+  - gnd_splice: [1]
+  - cool_button: [GND]
+
+-
+  - gnd_splice: [1]
+  - demist_button: [GND]
+
+-
+  - 6_pin_DT: [3]
+  - 6_core_wire: [3]
+  - mcp_exp_1: [SCL]
+
+-
+  - 6_pin_DT: [4]
+  - 6_core_wire: [4]
+  - mcp_exp_1: [SDA]
+
+-
+  - 6_pin_DT: [3]
+  - 6_core_wire: [3]
+  - mcp_exp_2: [SCL]
+
+-
+  - 6_pin_DT: [4]
+  - 6_core_wire: [4]
+  - mcp_exp_2: [SDA]
+###END 6PIN DT###
+
+###START TRANS ARRAY###
+-
+  - 5v_power_rail: [1A]
+  - trans_a_wiring_mcp: [9]
+  - trans_array_a: [GND]
+
+-
+  - 5v_power_rail: [2A]
+  - trans_b_wiring_mcp: [9]
+  - trans_array_b: [GND]
+
+-
+  - mcp_exp_1: [VIN]
+  - mcp_1_wiring: [1]
+  - 5v_power_rail: [3A]
+
+-
+  - mcp_exp_1: [GND]
+  - mcp_1_wiring: [2]
+  - 5v_power_rail: [3B]
+
+-
+  - mcp_exp_1: [A0]
+  - trans_a_wiring_mcp: [1]
+  - trans_array_a: [1b]
+  - trans_a_wiring_led: [1]
+  - trans_button: [LED-GND]
+
+-
+  - mcp_exp_1: [A1]
+  - trans_a_wiring_mcp: [2]
+  - trans_array_a: [2b]
+  - trans_a_wiring_led: [2]
+  - fan_button: [LED-GND]
+
+-
+  - mcp_exp_1: [A2]
+  - trans_a_wiring_mcp: [3]
+  - trans_array_a: [3b]
+  - trans_a_wiring_led: [3]
+  - wiper_button: [LED-GND]
+
+-
+  - mcp_exp_1: [A3]
+  - trans_a_wiring_mcp: [4]
+  - trans_array_a: [4b]
+  - trans_a_wiring_led: [4]
+  - low_button: [LED-GND]
+
+-
+  - mcp_exp_1: [A4]
+  - trans_a_wiring_mcp: [5]
+  - trans_array_a: [5b]
+  - trans_a_wiring_led: [5]
+  - high_button: [LED-GND]
+
+-
+  - mcp_exp_1: [A5]
+  - trans_a_wiring_mcp: [6]
+  - trans_array_a: [6b]
+  - trans_a_wiring_led: [6]
+  - haz_button: [LED-GND]
+
+-
+  - mcp_exp_1: [A6]
+  - trans_a_wiring_mcp: [7]
+  - trans_array_a: [7b]
+  - trans_a_wiring_led: [7]
+  - int_button: [LED-GND]
+
+-
+  - mcp_exp_1: [A7]
+  - trans_a_wiring_mcp: [8]
+  - trans_array_a: [8b]
+  - trans_a_wiring_led: [8]
+  - cool_button: [LED-GND]
+
+-
+  - mcp_exp_1: [E0]
+  - trans_b_wiring_mcp: [1]
+  - trans_array_b: [1b]
+  - trans_b_wiring_led: [1]
+  - demist_button: [LED-GND]
+###END TRANS ARRAY###
+###BUTTON WIRING START###
+
+- 
+  - mcp_exp_2: [VIN]
+  - mcp_2_wiring: [1]
+  - 5v_power_rail: [4A]
+
+-
+  - mcp_exp_2: [GND]
+  - mcp_2_wiring: [2]
+  - 5v_power_rail: [4B]
+-
+  - mcp_exp_2: [A0]
+  - button_wiring: [1]
+  - trans_button: [MCP-A0]
+
+-
+  - mcp_exp_2: [A1]
+  - button_wiring: [2]
+  - fan_button: [MCP-A1]
+
+-
+  - mcp_exp_2: [A2]
+  - button_wiring: [3]
+  - wiper_button: [MCP-A2]
+
+-
+  - mcp_exp_2: [A3]
+  - button_wiring: [4]
+  - low_button: [MCP-A3]
+
+-
+  - mcp_exp_2: [A4]
+  - button_wiring: [5]
+  - high_button: [MCP-A4]
+
+-
+  - mcp_exp_2: [A5]
+  - button_wiring: [6]
+  - haz_button: [MCP-A5]
+
+-
+  - mcp_exp_2: [A6]
+  - button_wiring: [7]
+  - int_button: [MCP-A6]
+
+-
+  - mcp_exp_2: [A7]
+  - button_wiring: [8]
+  - cool_button: [MCP-A7]
+
+-
+  - mcp_exp_2: [E0]
+  - button_wiring: [9]
+  - demist_button: [MCP-E0]
