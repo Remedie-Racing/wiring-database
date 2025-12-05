@@ -84,24 +84,24 @@ connectors:
     pincount: 18
     type: "transister_array"
     pins: [1b, 2b, 3b, 4b, 5b, 6b, 7b, 8b, 1c, 2c, 3c, 4c, 5c, 6c, 7c, 8c, GND]
-    pinlabels: [TRANS-LED, FAN-LED, WIPER-LED, LOW-LED, HIGH-LED, HAZ-LED, INT-LED, COOL-LED, MCP-A0, MCP-A1, MCP-A2, MCP-A3, MCP-A4, MCP-A5, MCP-A6, MCP-A7, GND]
+    pinlabels: [MCP-A0, MCP-A1, MCP-A2, MCP-A3, MCP-A4, MCP-A5, MCP-A6, MCP-A7, TRANS-LED, FAN-LED, WIPER-LED, LOW-LED, HIGH-LED, HAZ-LED, INT-LED, COOL-LED, GND]
 
   trans_array_b:
-    pincount: 18
+    pincount: 3
     type: "transister_array"
-    pins: [1b, 1c, 2c, 3c, 4c, 5c, 6c, 7c, 8c, GND]
-    pinlabels: [DEMIST-LED, MCP-E0, MCP-E1, MCP-E2, MCP-E3, MCP-E4, MCP-E5, MCP-E6, MCP-E7, GND]
+    pins: [1b, 1c, GND]
+    pinlabels: [MCP-E0, DEMIST-LED, GND]
 
   mcp_exp_1:
     pincount: 26
     type: "mcp23017_io_expander"
-    pins: [VIN, GND, SCL, SDA, RST, A0, A1, A2, A3, A4, A5, A6, A7, E0, E1, E2, E3, E4, E5, E6, E7, D2, D1, D0, IB, IA]
+    pins: [VIN, GND, SCL, SDA, RST, A0, A1, A2, A3, A4, A5, A6, A7, E0]
     pinlabels: [VIN, GND, SCL, SDA, RST, TRANS-LED, FAN-LED, WIPER-LED, LOW-LED, HIGH-LED, HAZ-LED, INT-LED, COOL-LED, DEMIST-LED]
   
   mcp_exp_2:
     pincount: 26
     type: "mcp23017_io_expander"
-    pins: [VIN, GND, SCL, SDA, RST, A0, A1, A2, A3, A4, A5, A6, A7, E0, E1, E2, E3, E4, E5, E6, E7, D2, D1, D0, IB, IA]
+    pins: [VIN, GND, SCL, SDA, RST, A0, A1, A2, A3, A4, A5, A6, A7, E0]
     pinlabels: [VIN, GND, SCL, SDA, RST, TRANS, FAN, WIPER, LOW, HIGH, HAZ, INT, COOL, DEMIST]
 
   trans_button:
@@ -173,7 +173,7 @@ cables:
 
   trans_b_wiring_mcp:
     category: bundle
-    wirecount: 9
+    wirecount: 2
 
   trans_a_wiring_led:
     category: bundle
@@ -181,7 +181,7 @@ cables:
 
   trans_b_wiring_led:
     category: bundle
-    wirecount: 8
+    wirecount: 1
   
   12v_splice:
     wirecount: 1
@@ -193,7 +193,7 @@ cables:
   
   button_wiring:
     category: bundle
-    wirecount: 12
+    wirecount: 9
 
   mcp_1_wiring:
     wirecount: 2
@@ -388,7 +388,7 @@ connections:
 
 -
   - 5v_power_rail: [2A]
-  - trans_b_wiring_mcp: [9]
+  - trans_b_wiring_mcp: [2]
   - trans_array_b: [GND]
 
 -
@@ -405,6 +405,9 @@ connections:
   - mcp_exp_1: [A0]
   - trans_a_wiring_mcp: [1]
   - trans_array_a: [1b]
+
+-
+  - trans_array_a: [1c]
   - trans_a_wiring_led: [1]
   - trans_button: [LED-GND]
 
@@ -412,6 +415,9 @@ connections:
   - mcp_exp_1: [A1]
   - trans_a_wiring_mcp: [2]
   - trans_array_a: [2b]
+
+-
+  - trans_array_a: [2c]
   - trans_a_wiring_led: [2]
   - fan_button: [LED-GND]
 
@@ -419,6 +425,9 @@ connections:
   - mcp_exp_1: [A2]
   - trans_a_wiring_mcp: [3]
   - trans_array_a: [3b]
+
+-
+  - trans_array_a: [3c]
   - trans_a_wiring_led: [3]
   - wiper_button: [LED-GND]
 
@@ -426,6 +435,9 @@ connections:
   - mcp_exp_1: [A3]
   - trans_a_wiring_mcp: [4]
   - trans_array_a: [4b]
+
+-
+  - trans_array_a: [4c]
   - trans_a_wiring_led: [4]
   - low_button: [LED-GND]
 
@@ -433,6 +445,9 @@ connections:
   - mcp_exp_1: [A4]
   - trans_a_wiring_mcp: [5]
   - trans_array_a: [5b]
+
+-
+  - trans_array_a: [5c]
   - trans_a_wiring_led: [5]
   - high_button: [LED-GND]
 
@@ -440,6 +455,8 @@ connections:
   - mcp_exp_1: [A5]
   - trans_a_wiring_mcp: [6]
   - trans_array_a: [6b]
+-
+  - trans_array_a: [6c]
   - trans_a_wiring_led: [6]
   - haz_button: [LED-GND]
 
@@ -447,6 +464,9 @@ connections:
   - mcp_exp_1: [A6]
   - trans_a_wiring_mcp: [7]
   - trans_array_a: [7b]
+
+-
+  - trans_array_a: [7c]
   - trans_a_wiring_led: [7]
   - int_button: [LED-GND]
 
@@ -454,6 +474,9 @@ connections:
   - mcp_exp_1: [A7]
   - trans_a_wiring_mcp: [8]
   - trans_array_a: [8b]
+
+-
+  - trans_array_a: [8c]
   - trans_a_wiring_led: [8]
   - cool_button: [LED-GND]
 
@@ -461,6 +484,9 @@ connections:
   - mcp_exp_1: [E0]
   - trans_b_wiring_mcp: [1]
   - trans_array_b: [1b]
+
+-
+  - trans_array_b: [1c]
   - trans_b_wiring_led: [1]
   - demist_button: [LED-GND]
 ###END TRANS ARRAY###
